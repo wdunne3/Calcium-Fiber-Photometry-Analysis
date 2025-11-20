@@ -36,7 +36,7 @@ time = row.Time_Vector;
 ending = time(end); % set the timepoint for the end of the recording
 baseline_range = [beginning-600 beginning]; % set the time range for the baseline
 normalization_range = [beginning-600 ending]; % set the time range for data to be normalized
-normalized = normalizeFP3(row_downsampled, 0, 'zscore', 1, 1, baseline_range, normalization_range); % normalize data to isosbestic, save and plot signal as z-score of ΔF/F 
+normalized = normalizeFP3(row_downsampled, 0, 'zscore', 1, baseline_range, normalization_range); % normalize data to isosbestic, save and plot signal as z-score of ΔF/F 
 %% Manually Adjust Baseline to 0
 t = normalized.Time_Vector; % extract signal data from normalized recording
 normalized_signal = normalized.Signal_Vector;
