@@ -6,7 +6,7 @@ prompt = 'File Save Name: '; % sanity check to ensure the right file name gets s
 save_name = input(prompt);
 save(save_name, "raw_structure", '-v7.3');
 %% Visualize Raw Data
-idx = 34; % index raw structure to visualize individul entry
+idx = 1; % index raw structure to visualize individul entry
 row = raw_structure(idx);
 time = row.Time_Vector; % extract trace data from raw structure
 sensor = row.Sensor_Signal;
@@ -23,7 +23,7 @@ xlabel('Time (s)');
 xline(pc1(1), '-', 'Injection'); % plots first TTL as the injection
 legend([line_sensor line_control]);
 %% Normalize GCaMP Data
-idx = 50; % index raw structure for individual entries
+idx = 1; % index raw structure for individual entries
 row = raw_structure(idx);
 ttl_matrix = row.TTLs; % extract TTL data
 pc1 = ttl_matrix{2};
@@ -70,9 +70,9 @@ prompt = 'File Save Name: '; % sanity check to ensure that the correct file name
 save_name = input(prompt);
 save(save_name, "normalized_structure");
 %% AUC for GCaMPs
-idx = 50;
+idx = 1;
 row = normalized_structure(idx); % index the normalized data structure for individual entries
-bucketed_auc = phaucFP1(row, 300, 3600, 'PC1', 1); % use custom function to find area under the curve in specified time buckets
+bucketed_auc = pharm_aucFP1(row, 300, 3600, 'PC1', 1); % use custom function to find area under the curve in specified time buckets
 %% Save Structure of AUC Data
 auc_bucketed = packageFP3('gcampopioidaucfinal.mat', bucketed_auc, 1); % save AUC data to its own structure
 prompt = 'File Save Name: ';
