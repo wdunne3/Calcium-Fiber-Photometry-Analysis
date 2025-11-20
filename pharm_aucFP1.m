@@ -1,4 +1,4 @@
-function auc_struct = phaucFP1(input_data, window, max_post_window, start_ttl, plotlog)
+function auc_struct = pharm_aucFP1(input_data, window, max_post_window, start_ttl, plotlog)
 % This function takes a normalized photometry trace with an associated ttl
 % and creates a pre-ttl bucket and then divides the post ttl recordings
 % into buckets, then takes the area under the curve
